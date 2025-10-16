@@ -153,11 +153,18 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
    - Orders are tied to specific vendor attendance at markets
 
 ### Cardinality Summary
-Markets 1 ↔ * Market_Vendors * ↔ 1 Vendors
-Vendors 1 → * Products
-Users 1 → 1 Vendors (subtype)
-Users 1 → 1 Customers (subtype)
-Customers 1 → * Orders
-Orders 1 → * Order_Items
-Market_Vendors 1 → * Orders
-Products * ← * Order_Items
+-- Markets 1 ↔ * Market_Vendors * ↔ 1 Vendors
+
+-- Vendors 1 → * Products
+
+-- Users 1 → 1 Vendors (subtype)
+
+-- Users 1 → 1 Customers (subtype)
+
+-- Customers 1 → * Orders
+
+-- Orders 1 → * Order_Items
+
+-- Market_Vendors 1 → * Orders
+
+-- Products * ← * Order_Items
