@@ -32,6 +32,7 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 - **Customers**: Users placing pre-orders
 - **Orders**: Pre-order transactions linking customers, vendors, products, and markets
 - **Users**: Authentication system for all user types (customers, vendors, admins)
+- **Market_Vendors**:This is a junction table (also called an associative or bridge table) that connects Markets and Vendors. It resolves the many-to-many relationship between them by storing details specific to a vendor's participation in a particular market (e.g., their booth setup). Without this, you couldn't track which vendors are attending which markets or add event-specific info.
 
 ---
 
