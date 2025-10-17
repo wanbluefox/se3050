@@ -171,8 +171,11 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 -- Products * ← * Order_Items
 
 ### Normalization Analysis (Preview for Milestone 3)
+
 -- **1NF**: All attributes atomic, no repeating groups
+
 -- **2NF**: No partial dependencies (all non-key attributes depend on entire PK)
+
 -- **3NF**: No transitive dependencies (non-key attributes depend only on candidate keys)
 
 ### Business Rules Implemented
