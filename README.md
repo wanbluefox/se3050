@@ -18,12 +18,9 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 **MN MarketLink** is a comprehensive platform connecting Minnesota farmers markets with local communities. Key features include:
 
 1. **Market Discovery**: Browse all farmers markets by location, date, and season
-2. **Vendor Management**: Farmers and vendors register and manage their market appearances
-3. **Product Catalog**: Detailed product listings with availability, pricing, and seasonal information
-4. **Pre-Order System**: Customers browse products and place pre-orders for market pickup
-5. **Order Fulfillment**: Vendors receive and manage customer orders for each market
-6. **User Accounts**: Separate authentication for customers, vendors, and market administrators
-7. **Search & Filtering**: Advanced search across markets, vendors, and products
+2. **Product Catalog**: Detailed product listings with availability, pricing, and seasonal information
+3. **Pre-Order System**: Customers browse products and place pre-orders for market pickup
+4. **Search & Filtering**: Advanced search across markets, vendors, and products
 
 ### Core Entities & Relationships
 - **Markets**: Physical locations hosting farmers markets on specific dates
@@ -31,7 +28,6 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 - **Products**: Items available for sale by vendors
 - **Customers**: Users placing pre-orders
 - **Orders**: Pre-order transactions linking customers, vendors, products, and markets
-- **Users**: Authentication system for all user types (customers, vendors, admins)
 - **Market_Vendors**:This is a junction table (also called an associative or bridge table) that connects Markets and Vendors. It resolves the many-to-many relationship between them by storing details specific to a vendor's participation in a particular market (e.g., their booth setup). Without this, you couldn't track which vendors are attending which markets or add event-specific info.
 
 ---
@@ -90,25 +86,15 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 - **special_requests** (TEXT)
 - **is_confirmed** (BOOLEAN) DEFAULT FALSE
 
-#### 5. Users
-- **user_id** (PK, INT)
-- **email** (VARCHAR(255)) UNIQUE
-- **password_hash** (VARCHAR(255))
-- **first_name** (VARCHAR(50))
-- **last_name** (VARCHAR(50))
-- **phone** (VARCHAR(15))
-- **user_type** (ENUM('customer', 'vendor', 'admin', 'market_manager'))
-- **is_active** (BOOLEAN) DEFAULT TRUE
-- **created_at** (TIMESTAMP)
-- **last_login** (TIMESTAMP)
 
-#### 6. Customers
+#### 5. Customers
 - **customer_id** (PK, INT)
-- **user_id** (FK, INT) → Users
-- **preferred_pickup_market** (INT) → Markets
+- **first_name** (VARCHAR(50)) 
+- **last_name** (VARCHAR(50))
+- **email** (VARCHAR(50)) 
 
 
-#### 7. Orders
+#### 6. Orders
 - **order_id** (PK, INT)
 - **customer_id** (FK, INT) → Customers
 - **market_vendor_id** (FK, INT) → Market_Vendors
@@ -119,7 +105,7 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 - **payment_status** (ENUM('pending', 'paid', 'refunded'))
 - **special_instructions** (TEXT)
 
-#### 8. Order_Items
+#### 7. Order_Items
 - **order_item_id** (PK, INT)
 - **order_id** (FK, INT) → Orders
 - **product_id** (FK, INT) → Products
@@ -139,9 +125,6 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
    - Each vendor offers multiple products
    - Products belong to one vendor
 
-3. **Users → Vendors/Customers** (One-to-One)
-   - Users authenticate; vendor/customer data extends user profile
-   - Supports role-based access control
 
 4. **Customers → Orders** (One-to-Many)
    - Customers place multiple orders over time
@@ -156,10 +139,6 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 -- Markets 1 ↔ * Market_Vendors * ↔ 1 Vendors
 
 -- Vendors 1 → * Products
-
--- Users 1 → 1 Vendors (subtype)
-
--- Users 1 → 1 Customers (subtype)
 
 -- Customers 1 → * Orders
 
