@@ -159,17 +159,16 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 ### Business Rules Implemented
 
 1, Orders only valid for confirmed vendor market attendance
-2, Product availability scoped to vendor-market combinations
-3, User roles determine access permissions
-4, Orders track complete lifecycle from placement to pickup
-5, Pricing captured at order time (historical accuracy)
+2, Product availability scoped to vendor-market combinations 
+3, Orders track complete lifecycle from placement to pickup
+4, Pricing captured at order time (historical accuracy)
 
 ### Sample Queries Enabled by Design
 
 -- Find all vendors at a specific market with their products
 -- Search products across markets by category and availability
 -- Generate order summaries for vendors per market
--- Track customer order history and preferences
+-- Track customer order history
 
 ### ERD Visualization
 
