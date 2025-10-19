@@ -173,7 +173,7 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 
 ### ERD Visualization
 
-![Entity-Relationship Diagram](image/ER_diagram.png)
+![Entity-Relationship Diagram](image/ProjectERD.JPG)
 
 ### Schema Preview (SQL Script for Implementation)
 This SQL script is a preview of how the ERD would be implemented in MySQL. It can be run in MySQL Workbench to create the schema, and the EER diagram can be generated via "Database > Reverse Engineer" for validation or import the data into Lucidchart. This is provided as a bridge to Milestone 3.
