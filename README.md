@@ -106,8 +106,7 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 - **customer_id** (PK, INT)
 - **user_id** (FK, INT) → Users
 - **preferred_pickup_market** (INT) → Markets
-- **delivery_instructions** (TEXT)
-- **allergy_notes** (TEXT)
+
 
 #### 7. Orders
 - **order_id** (PK, INT)
@@ -287,9 +286,7 @@ CREATE TABLE Market_Vendors (
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    preferred_pickup_market INT,
-    delivery_instructions TEXT,
-    allergy_notes TEXT,
+    preferred_pickup_market INT,  
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (preferred_pickup_market) REFERENCES Markets(market_id) ON DELETE SET NULL
 );
