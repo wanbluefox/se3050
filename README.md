@@ -34,6 +34,8 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 
 ## Entity-Relationship Diagram (ERD)
 
+![Our ER diagram](image/Final_ER_diagram.png)
+
 ### Core Entities & Attributes
 
 #### 1. Markets
