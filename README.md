@@ -172,7 +172,7 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 
 ### ERD Visualization
 
-![Entity-Relationship Diagram](image/ProjectERD.JPG)
+![Entity-Relationship Diagram](image/Final_ER_diagram)
 
 ### Schema Preview (SQL Script for Implementation)
 This SQL script is a preview of how the ERD would be implemented in MySQL. It can be run in MySQL Workbench to create the schema, and the EER diagram can be generated via "Database > Reverse Engineer" for validation or import the data into Lucidchart. This is provided as a bridge to Milestone 3.
@@ -200,20 +200,6 @@ CREATE TABLE Markets (
     description TEXT,
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- 5. Users (created early due to FK dependencies)
-CREATE TABLE Users (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    phone VARCHAR(15),
-    user_type ENUM('customer', 'vendor', 'admin', 'market_manager') NOT NULL,
-    is_active BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    last_login TIMESTAMP
 );
 
 -- 2. Vendors
@@ -260,7 +246,7 @@ CREATE TABLE Market_Vendors (
     FOREIGN KEY (vendor_id) REFERENCES Vendors(vendor_id) ON DELETE CASCADE
 );
 
--- 6. Customers
+-- 5. Customers
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -269,7 +255,7 @@ CREATE TABLE Customers (
     FOREIGN KEY (preferred_pickup_market) REFERENCES Markets(market_id) ON DELETE SET NULL
 );
 
--- 7. Orders
+-- 6. Orders
 CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
@@ -284,7 +270,7 @@ CREATE TABLE Orders (
     FOREIGN KEY (market_vendor_id) REFERENCES Market_Vendors(market_vendor_id) ON DELETE CASCADE
 );
 
--- 8. Order_Items
+-- 7. Order_Items
 CREATE TABLE Order_Items (
     order_item_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
