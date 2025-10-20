@@ -158,10 +158,13 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 
 ### Business Rules Implemented
 
-1, Orders only valid for confirmed vendor market attendance
-2, Product availability scoped to vendor-market combinations 
-3, Orders track complete lifecycle from placement to pickup
-4, Pricing captured at order time (historical accuracy)
+-- 1, Orders only valid for confirmed vendor market attendance
+
+-- 2, Product availability scoped to vendor-market combinations 
+
+-- 3, Orders track complete lifecycle from placement to pickup
+
+-- 4, Pricing captured at order time (historical accuracy)
 
 ### Sample Queries Enabled by Design
 
