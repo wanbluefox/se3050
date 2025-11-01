@@ -38,11 +38,8 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 
 #### 1. Markets
 - **market_id** (PK, INT)
+- **zip_code** (FK, VARCHAR(10)) -> Market_Address
 - **name** (VARCHAR(100))
-- **location_address** (VARCHAR(200))
-- **city** (VARCHAR(50))
-- **state** (CHAR(2)) DEFAULT 'MN'
-- **zip_code** (VARCHAR(10))
 - **market_date** (DATE)
 - **start_time** (TIME)
 - **end_time** (TIME)
@@ -54,7 +51,6 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 
 #### 2. Vendors
 - **vendor_id** (PK, INT)
-- **user_id** (FK, INT) → Users
 - **business_name** (VARCHAR(100))
 - **farm_name** (VARCHAR(100))
 - **contact_phone** (VARCHAR(15))
@@ -101,7 +97,6 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 - **order_date** (TIMESTAMP)
 - **pickup_date** (DATE)
 - **status** (ENUM('pending', 'confirmed', 'ready', 'picked_up', 'cancelled'))
-- **total_amount** (DECIMAL(10,2))
 - **payment_status** (ENUM('pending', 'paid', 'refunded'))
 - **special_instructions** (TEXT)
 
@@ -113,6 +108,13 @@ https://trello.com/invite/b/68ca3a2cce1e360f2c05134b/ATTI60127e67a64b1602d6b63e8
 - **unit_price** (DECIMAL(10,2))
 - **subtotal** (DECIMAL(10,2))
 - **notes** (TEXT)
+
+- #### 8. Market_Address
+- **zip_code** (PK, VARCHAR(10))
+- **city** (VARCHAR(50)) 
+- **state** (CHAR(2)) 
+- **location_address** (VARCHAR(200))
+
 
 ### Key Relationships
 
