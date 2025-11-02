@@ -1,10 +1,14 @@
 # Normalization Analysis for MN MarketLink Database
 We introduced the `Market_Address` table to resolve a transitive dependency in `Markets` (zip_code → city/state/location_address). We also removed `total_amount` from `Orders` as it can be derived from summing `Order_Items.subtotal`, avoiding redundancy. All tables were checked against 1NF, 2NF, and 3NF.
 
+---
+
 ## General Principles Applied
 - **1NF**: All attributes are atomic (single-valued, no lists). Enums ensure controlled values.
 - **2NF**: Non-key attributes fully depend on the entire primary key (no partial dependencies). Most PKs are single-column, so inherent.
 - **3NF**: No transitive dependencies (non-key attributes depend only on the PK).
+
+---
 
 ## Table-Specific Analysis
 
@@ -54,5 +58,6 @@ attribute.
 - **Market_Address**: 1NF/2NF/3NF achieved; simple lookup table.
 - **Market_Vendors**: 1NF/2NF/3NF; attributes depend on the junction.
 - **Order_Items**: 1NF/2NF/3NF; subtotal = quantity * unit_price, no transitives.
+
 
 
