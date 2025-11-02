@@ -193,9 +193,6 @@ USE mn_marketlink;
 CREATE TABLE Markets (
     market_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    location_address VARCHAR(200) NOT NULL,
-    city VARCHAR(50) NOT NULL,
-    state CHAR(2) DEFAULT 'MN',
     zip_code VARCHAR(10) NOT NULL,
     market_date DATE,
     start_time TIME,
@@ -204,13 +201,13 @@ CREATE TABLE Markets (
     season_end DATE,
     description TEXT,
     is_active BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (zip_code) REFERENCES Market_Address(zip_code)
 );
 
 -- 2. Vendors
 CREATE TABLE Vendors (
     vendor_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
     business_name VARCHAR(100) NOT NULL,
     farm_name VARCHAR(100),
     contact_phone VARCHAR(15),
@@ -268,7 +265,6 @@ CREATE TABLE Orders (
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     pickup_date DATE NOT NULL,
     status ENUM('pending', 'confirmed', 'ready', 'picked_up', 'cancelled') DEFAULT 'pending',
-    total_amount DECIMAL(10,2) NOT NULL,
     payment_status ENUM('pending', 'paid', 'refunded') DEFAULT 'pending',
     special_instructions TEXT,
     FOREIGN KEY (customer_id) REFERENCES Customers(customer_id) ON DELETE CASCADE,
@@ -286,6 +282,14 @@ CREATE TABLE Order_Items (
     notes TEXT,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES Products(product_id) ON DELETE RESTRICT
+);
+
+-- 8. Market_Address
+CREATE TABLE Market_Address (
+    zip_code VARCHAR(10) PRIMARY KEY,
+    city VARCHAR(50),
+    state CHAR(2),
+    location_address VARCHAR(200)
 );
 
 -- Indexes for performance
