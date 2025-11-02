@@ -301,6 +301,7 @@ CREATE INDEX idx_user_email ON Users(email);
 
 ```
 
+---
 
 # Milestone 3: Schema Implementation & Normalization for MN MarketLink
 
@@ -442,7 +443,7 @@ ALTER TABLE Products ADD UNIQUE KEY uk_product_vendor (vendor_id, name);
 
 ### ERD Visualization for Milestone 3
 
-
+![Entity-Relationship Diagram](image/milestone3ERD.png)
 
 ---
 
