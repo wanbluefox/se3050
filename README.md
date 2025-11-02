@@ -305,7 +305,7 @@ CREATE INDEX idx_user_email ON Users(email);
 
 # Milestone 3: Schema Implementation & Normalization for MN MarketLink
 
-The script below now runs successfully (tested in MySQL Workbench)
+This SQL script is the finalized version of our schema based on the ERD developed in Milestone 2. It is fully normalized to 3NF and includes all necessary tables, constraints, and relationships. The script has been tested and runs successfully in MySQL Workbench.This version replaces the earlier preview and serves as the actual implementation of our database design.The full SQL code is also provided in the schema.sql file in our GitHub repository.
 
 ## schema.sql
 ```sql
