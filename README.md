@@ -604,7 +604,7 @@ These scripts fully satisfy **Milestone 4** requirements and prepare us for the 
   - Order summaries and sales views
 
 The same `schema.sql`, `data.sql`, and `queries.sql` will be reused by our final application and demo video.
-````
+
 
 
 
