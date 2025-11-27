@@ -498,6 +498,113 @@ attribute.
 - **Market_Vendors**: 1NF/2NF/3NF; attributes depend on the junction.
 - **Order_Items**: 1NF/2NF/3NF; subtotal = quantity * unit_price, no transitives.
 
+---
+
+# Milestone 4 -- Data Population & Query Implementation
+
+## Overview
+
+This milestone prepares the **MN MarketLink** database with realistic sample data and core SQL queries that will power our final application.
+
+The project models a farmers market pre-order system where customers can:
+
+- Browse markets and vendors  
+- View products offered at each market  
+- Place pre-orders for pickup  
+
+For Milestone 4, we provide:
+
+- A fully normalized schema (`schema.sql`)
+- Sample data population script (`data.sql`)
+- Core application queries (`queries.sql`)
+
+---
+
+## Files Included
+
+### 1. `schema.sql`
+- Creates the **mn_marketlink** database and all tables:
+  - `Market_Address`
+  - `Markets`
+  - `Vendors`
+  - `Products`
+  - `Market_Vendors`
+  - `Customers`
+  - `Orders`
+  - `Order_Items`
+- Adds foreign keys, indexes, and unique constraints.
+- Normalized to **3NF** (e.g., `Market_Address` factored out from `Markets`, `total_amount` removed from `Orders`, etc.).
+
+> **How to use:**  
+> Run this file first in MySQL Workbench:
+> ```sql
+> SOURCE /path/to/schema.sql;
+> ```
+
+---
+
+### 2. `data.sql`
+Populates the schema with realistic sample data:
+
+- **10** `Market_Address` rows (various MN cities and zip codes)
+- **10** `Markets`
+- **20** `Vendors` (farmers / producers)
+- **50** `Products`  
+  - 5 products for each of the first 10 vendors (mix of vegetables, fruits, dairy, meat, bakery, flowers, other)
+- Sample `Market_Vendors` (vendor participation at specific markets)
+- Sample `Customers`  
+- Sample `Orders` and `Order_Items` for pre-orders
+
+This dataset is sufficient to:
+
+- Browse markets and associated vendors  
+- Search and filter products  
+- Show realistic order histories and sales summaries  
+
+> **How to use (after `schema.sql`):**
+> ```sql
+> USE mn_marketlink;
+> SOURCE /path/to/data.sql;
+> ```
+
+---
+
+### 3. `queries.sql`
+Contains the main **SELECT** statements our application will rely on, each with a clear purpose:
+
+1. **List all active markets** with city, date, and times.  
+2. **Show all vendors at a given market** (by `market_id`).  
+3. **List products available at a market**, grouped by vendor.  
+4. **Customer order history** (orders per customer).  
+5. **Order totals** using `Order_Items.subtotal` (no redundant `total_amount` column).  
+6. **Sales summary per vendor and market** (joins `Orders`, `Market_Vendors`, `Vendors`, `Markets`).  
+7. **Filter products by category** (example: `vegetables`).
+
+> **How to use:**  
+> Open a new SQL tab in MySQL Workbench, paste the contents of `queries.sql`, and run each query (or all at once) with:
+> ```sql
+> USE mn_marketlink;
+> -- then run the SELECT statements
+> ```
+
+---
+
+## How This Supports the Final Application
+
+These scripts fully satisfy **Milestone 4** requirements and prepare us for the final UI:
+
+- The database is populated with enough data to:
+  - Browse markets and vendors
+  - Search products across all markets
+  - Demonstrate pre-order creation and viewing
+- `queries.sql` directly maps to the required app features:
+  - Market browsing
+  - Market details with vendor list
+  - Product search
+  - Order summaries and sales views
+
+The same `schema.sql`, `data.sql`, and `queries.sql` will be reused by our final application and demo video.
+````
 
 
 
