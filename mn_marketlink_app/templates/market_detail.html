@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ market.name }}</h1>
+<p>{{ market.location_address }}, {{ market.city }}, {{ market.state }}</p>
+<p>Date: {{ market.market_date }} | Time: {{ market.start_time }} - {{ market.end_time }}</p>
+
+<h2>Vendors</h2>
+<ul>
+  {% for v in vendors %}
+    <li>{{ v.business_name }} ({{ 'Confirmed' if v.is_confirmed else 'Pending' }})</li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+
+

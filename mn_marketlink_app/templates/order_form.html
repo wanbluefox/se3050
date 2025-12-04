@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h1>Pre-order Product #{{ product_id }}</h1>
+<form method="post">
+  <div class="mb-3">
+    <label>First Name</label>
+    <input name="first_name" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label>Last Name</label>
+    <input name="last_name" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label>Email</label>
+    <input name="email" type="email" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label>Quantity</label>
+    <input name="quantity" type="number" min="1" value="1" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Place Order</button>
+</form>
+{% endblock %}
+

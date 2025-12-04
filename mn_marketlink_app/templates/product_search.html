@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Product Search</h1>
+<form method="get">
+  <input type="text" name="q" value="{{ q }}" placeholder="Search products..." />
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+{% if products %}
+<table class="table mt-3">
+  <tr>
+    <th>Product</th><th>Category</th><th>Price</th><th>Vendor</th><th>Market</th><th>City</th><th></th>
+  </tr>
+  {% for p in products %}
+  <tr>
+    <td>{{ p.product_name }}</td>
+    <td>{{ p.category }}</td>
+    <td>${{ p.base_price }}</td>
+    <td>{{ p.business_name }}</td>
+    <td>{{ p.market_name }}</td>
+    <td>{{ p.city }}</td>
+    <td><a href="{{ url_for('place_order', product_id=p.product_id) }}" class="btn btn-sm btn-success">Pre-order</a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% elif q %}
+<p>No products found for "{{ q }}".</p>
+{% endif %}
+{% endblock %}
+
+
+
