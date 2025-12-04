@@ -1,5 +1,4 @@
 
-
 # MN MarketLink — SE3050 Final Project (Milestone 5)
 
 A simple Flask + MySQL web application for a farmers market pre-order system. The app connects to our `mn_marketlink` database and demonstrates the full database life-cycle: browsing markets, viewing vendors, searching products, and placing a pre-order using a database transaction.
@@ -27,7 +26,7 @@ A simple Flask + MySQL web application for a farmers market pre-order system. Th
 This app lives here:
 
 ```
-final project/Milestone5/mn_marketlink_app/
+mn_marketlink_app/
 ```
 
 ---
@@ -51,7 +50,7 @@ conda activate school
 From the app folder:
 
 ```bash
-cd "final project/Milestone5/mn_marketlink_app"
+cd mn_marketlink_app
 pip install -r requirements.txt
 ```
 
@@ -122,6 +121,7 @@ pip install cryptography
 ```
 
 (or re-run `pip install -r requirements.txt`)
+
 
 
 
