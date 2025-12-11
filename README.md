@@ -697,7 +697,7 @@ Running on http://127.0.0.1:5000
 ---
 
 ## Demo Video
-Video link: (to be added)
+Video link: https://drive.google.com/file/d/1Ow9uOAlRG0UJyytC__yrjS4xVzEsmcO_/view?usp=sharing
 
 
 Suggested demo flow:
